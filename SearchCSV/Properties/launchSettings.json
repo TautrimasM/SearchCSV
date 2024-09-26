@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SearchCSV": {
+      "commandName": "Project",
+      "commandLineArgs": "-f \"1.csv\" -o \"results.json\" -q \"signatureId='*4608*' AND NOT deviceProduct='Windows Vista'\" -d --save-db"
+    }
+  }
+}
