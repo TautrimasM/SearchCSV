@@ -8,13 +8,14 @@ It is an application that:
 
 # Requirements
 .NET 8
+
 Docker (for DataBase test functionality)
 
 # How to use
 ## Ways of use
-There are two ways of using this application - CLI or Wizard mode
-CLI - you can provide data, query and other params as arguments
-Wizard mode - interactive mode which asks you for each parameter
+There are two ways of using this application - CLI or Wizard mode:
+* CLI - you can provide data, query and other params as arguments
+* Wizard mode - interactive mode which asks you for each parameter
 
 ## Spinning up test DataBase
 To spin up a database instance you need to run dosker daemon and then run command
@@ -24,38 +25,54 @@ To spin up a database instance you need to run dosker daemon and then run comman
 
 ## Query syntax:
 Query is made like this:
-	<name_of_param>='<value_of_param>
-	Example: 
-		signatureId='4608'
-	
-Query supports wildcard operator like this:
-	Example: 
-		signatureId='*4608*'
-	
-Also query supports boolean operators AND, OR, NOT:
-	Example: 
-		signatureId='*4608*' AND NOT deviceProduct='Windows Vista'
 
+<name_of_param>='<value_of_param>
+ 
+Example: 
+```
+signatureId='4608'
+```	
+Query supports wildcard operator like this:
+
+Example:  
+```
+signatureId='*4608*'
+```	
+Also query supports boolean operators AND, OR, NOT:
+
+Example: 
+```
+signatureId='*4608*' AND NOT deviceProduct='Windows Vista'
+```
 
 ## CLI Arguments:
 -f or --file: Input CSV file paths (comma-separated and individualy enclosed in quoutes, may be absolute or relative). Required.
+
 -q or --query: Query to search logs (supports AND, OR, NOT). Required.
+
 -o or --output: Output JSON file path.
+
 -s or --severity: Enables printing out records that matches or exceeds povided severity threshold.
+
 -p or --print: Print results to the console.
+
 -w or --wizard: Enable wizard mode for interactive input.
+
 -d or --delete-dublicates: Removes duplicate entries.
+
 --save-db: tries to save search result to local NoSQL database.
+
 --help: Show help message.
 
-	Example CLI:
-		```
-		dotnet run -- -f "logs.csv" -o "results.json" -q "signatureId='*4608*' AND NOT deviceProduct='Windows Vista'" -s 4 -d 
-		```
-	Example Wizard mode:
-		```
-		dotnet run -- -w
-		```
+Example CLI:
+```
+dotnet run -- -f "logs.csv" -o "results.json" -q "signatureId='*4608*' AND NOT deviceProduct='Windows Vista'" -s 4 -d 
+```
+Example Wizard mode:
+```
+dotnet run -- -w
+```
+
 # Implemented TODOs:
 ## Required:
 * Build a solution that is able to search any column by full or partial text string. 
